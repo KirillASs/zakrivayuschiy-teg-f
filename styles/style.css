@@ -195,14 +195,14 @@ button {
 
 /* !-- Комментарий для ревью, text-stroke выглядит не очень как его не настраивай, все из за уменьшения толщины шрифта -- */
 
-/* @supports (text-stroke: 0.2px var(--color-white)) or (-webkit-text-stroke: 0.2px var(--color-white)) {
+@supports (text-stroke: 0.2px var(--color-white)) or (-webkit-text-stroke: 0.2px var(--color-white)) {
   .img-lable {
     -webkit-text-stroke: 0.2px var(--color-white);
     text-stroke: 1px var(--color-white);
     text-shadow: none;
     font-weight: bold;
   }
-} */
+}
 
 /* !-- Карточки - текст -- */
 
@@ -261,7 +261,7 @@ button {
 /* ! -- hover */
 
 .like-icon:hover .core {
-  transition-delay: 0s; 
+  transition-delay: 0s;
 }
 
 .like-icon:hover .main-body {
@@ -277,7 +277,7 @@ button {
 
 .like-icon:active .core {
   transition: fill .3s linear;
-  transition-delay: 0s; 
+  transition-delay: 0s;
 }
 
 .like-icon:active .main-body {
