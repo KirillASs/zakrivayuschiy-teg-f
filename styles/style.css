@@ -63,7 +63,7 @@ button {
   color: var(--color-white);
 }
 
-.button--hover::before{
+.button--hover::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -72,7 +72,7 @@ button {
   transform: translateX(-100%);
 }
 
-.button--hover:hover.button--hover::before{
+.button--hover:hover.button--hover::before {
   content: '';
   transform: translateX(0);
 }
@@ -294,10 +294,6 @@ button {
   transition-delay: 0s;
 }
 
-.like-icon.is-liked .core {
-  transition-delay: 0s;
-}
-
 .like-icon.is-liked .main-body {
   transition-delay: 0.05s;
 }
@@ -369,7 +365,7 @@ button {
   box-shadow: 2px 2px 0 0 var(--color-white);
 }
 
-.floopy-img{
+.floopy-img {
   block-size: 28px;
   inline-size: 28px;
   fill: var(--color-white);
@@ -384,7 +380,7 @@ button {
   padding: 30px 40px;
 }
 
-.modal__content{
+.modal__content {
   display: flex;
   gap: 12px;
   align-items: center;
@@ -441,7 +437,7 @@ button {
     padding: 10px 8px;
     }
 
-  .modal{
+  .modal {
     padding: 30px 30px;
   }
 
@@ -449,7 +445,7 @@ button {
     flex-direction: row;
   }
 
-  .floopy-img{
+  .floopy-img {
     block-size: 21px;
     inline-size: 21px;
   }
