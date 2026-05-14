@@ -9,8 +9,452 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+/* !-- Основаные стили страницы -- */
+
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image:  
+   repeating-linear-gradient(
+            to right,
+            transparent 0px,
+            transparent 2px,
+            #d3d3d3 2px,
+            #d3d3d3 4px
+        ),
+  repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 2px,
+            #d3d3d3 2px,
+            #d3d3d3 4px
+        ),
+  linear-gradient(#E7E7E7 0.01% , #1A1A1A);
+
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: var(--font-family--inter);
+}
+
+/* !-- Стили для группы элементов и общие классы -- */
+button {
+  cursor: pointer;
+}
+
+.pixel-style {
+  font-family: 'PressStart2P', sans-serif;
+  font-variation-settings: "wght" var(--font-weight--text);
+  font-size: var(--font-size--pixel-text--small);
+}
+
+.button--hover {
+  border: var(--border-invers);
+  background-color: var(--color-black);
+  position: relative;
+  overflow: hidden;
+  mix-blend-mode: difference;
+}
+
+.button--hover span {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: var(--color-white);
+}
+
+.button--hover::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease-in-out;
+  background-color: var(--color-white);
+  transform: translateX(-100%);
+}
+
+.button--hover:hover.button--hover::before{
+  content: '';
+  transform: translateX(0);
+}
+
+.filters__grayscale {
+  filter: grayscale(80%);
+}
+
+.filters__saturate {
+  filter: saturate(400%);
+}
+
+.filters__hue-rotate {
+  filter: hue-rotate(25deg);
+}
+
+.filters__invert {
+  filter: invert(80%);
+}
+
+.filters__sepia {
+  filter: sepia(80%);
+}
+
+.filters__blure {
+  filter: blur(15px);
+}
+
+.multi-filter__blure-hue {
+  filter: blur(1px) hue-rotate(90deg) saturate(70%) opacity(.9);
+}
+
+
+/* !-- Шапка страницы -- */
+.header {
+  inline-size: var(--section-size--primary);
+  margin: 0 auto;
+}
+
+.header__title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 120px 0;
+  margin-block-start: 100px;
+  margin-block-end: 100px;
+  border: var(--border-primary);
+}
+
+.header__title {
+  text-transform: uppercase;
+  font-size: clamp(49px, 43.37px + 1.50vw, 65px);
+}
+
+.header__title--coment {
+  text-transform: uppercase;
+  font-size: clamp(14px, 10.83px + 0.85vw, 23px);
+  margin-top: 20px;
+}
+
+/* !-- Основаной контент -- */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+/* !-- Карточки -- */
+
+.card {
+  border: var(--border-primary);
+  background-color: var(--color-white);
+  inline-size: var(--section-size--primary);
+}
+
+/* !-- Карточки - заголовок -- */
+
+.card__title {
+  font-variation-settings: "wght" var(--font-weight--title);
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+/* !-- Карточки - картинка -- */
+
+.card__img-container {
+  position: relative;
+  border-top: var(--border-primary);
+  border-bottom: var(--border-primary);
+  block-size: clamp(23.4375rem, 3.3834rem + 85.5643vw, 43.8125rem);
+  overflow: clip;
+}
+
+.card__img {
+  inline-size: 100%;
+  block-size: clamp(23.4375rem, 3.3834rem + 85.5643vw, 43.8125rem);
+  object-fit: fill;
+}
+
+.img-lable {
+  font-family: var(--font-family--pressStart2P);
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-shadow: 
+        -1px -1px 0 var(--color-white),
+        1px -1px 0 var(--color-white),
+        -1px 1px 0 var(--color-white),
+        1px 1px 0 var(--color-white);
+  mix-blend-mode: hard-light;
+  font-size: var(--font-size--pixel-text--small);
+  color: var(--color-black);
+  opacity: .5;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+/* !-- Комментарий для ревью, text-stroke выглядит не очень как его не настраивай, все из за уменьшения толщины шрифта -- */
+
+/* @supports (text-stroke: 0.2px var(--color-white)) or (-webkit-text-stroke: 0.2px var(--color-white)) {
+  .img-lable {
+    -webkit-text-stroke: 0.2px var(--color-white);
+    text-stroke: 1px var(--color-white);
+    text-shadow: none;
+    font-weight: bold;
+  }
+} */
+
+/* !-- Карточки - текст -- */
+
+.card__content {
+  padding: 25px;
+  display: grid;
+  gap: 25px;
+  font-size: 1.125rem;
+}
+
+/* !-- Карточки - кнопки -- */
+
+.card__button-container {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  inline-size: fit-content;
+  place-self: end;
+}
+
+/* !-- Карточки - кнопка для сердечка -- */
+
+.card__icon-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  outline: 2px solid transparent;
+  transition: outline .3s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--color-black);
+}
+
+.like-icon {
+  inline-size: 36px;
+  block-size: 35px;
+  display: flex;
+  place-items: center;
+}
+
+.contour {
+  transition: fill .1s linear;
+}
+
+.core {
+  transition: fill .3s linear;
+  transition-delay: .03s;
+}
+
+.main-body {
+  transition: fill .3s linear;
+}
+
+/* ! -- hover */
+
+.like-icon:hover .core {
+  transition-delay: 0s; 
+}
+
+.like-icon:hover .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon:hover {
+  --heart--main-body-color: var(--color-black);
+  --heart--core-color: var(--color-black);
+}
+
+/* ! -- active */
+
+.like-icon:active .core {
+   transition: fill .3s linear;
+  transition-delay: 0s; 
+}
+
+.like-icon:active .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon:active {
+  --heart--main-body-color: var(--color-red--heart);
+  --heart--core-color: var(--color-red--heart);
+}
+
+/* ! -- click */
+
+.like-icon.is-liked .core {
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .core {
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked {
+  --heart--contour-color: var(--color-red--heart);
+  --heart--main-body-color: var(--color-red--heart);
+  --heart--core-color: var(--color-red--heart);
+  animation: sparks-opacity .3s .3s ease-in ;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale .3s .1s ease-in;
+  transform-origin: center;
+}
+
+@keyframes heart-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes sparks-opacity {
+  from {
+    --heart--sparks-opacity: 0;
+  }
+  to {
+    --heart--sparks-opacity: 1;
+  }
+}
+
+/* !-- Карточки - кнопка лайка -- */
+
+.card__like-button {
+  padding: 9.5px 8px;
+  min-inline-size: 130px;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.card__like-button:focus-visible, .card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--color-white);
+}
+
+.modal-section {
+  margin-bottom: 100px;
+  background: white;
+}
+
+.floopy-button {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding: 15px 18px;
+  transition: box-shadow 0.3s ease;
+}
+
+.floopy-button:focus-visible, .floopy-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--color-white);
+}
+
+.floopy-img{
+  block-size: 28px;
+  inline-size: 28px;
+  fill: var(--color-white);
+  mix-blend-mode: difference;
+}
+
+.page:has(.modal[open]) {
+  overflow: hidden;
+}
+
+.modal{
+  padding: 30px 40px;
+}
+
+.modal__content{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-block-end: 30px;
+}
+
+.modal__floopy-img {
+  display: block;
+  width: 39px;
+  height: 39px;
+}
+
+.modal__floopy-img use {
+  width: 100%;
+  height: 100%;
+}
+
+.modal__text {
+  width: fit-content;
+  line-height: 150%;
+  text-transform: uppercase;
+  max-inline-size: 234px;
+}
+
+.modal__button {
+  text-transform: uppercase;
+  inline-size: 100%;
+  padding: 10.5px 0;
+  line-height: 90%;
+  transition: box-shadow 0.3s ease;
+  
+}
+
+.modal__button:focus-visible, .modal__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--color-white);
+}
+
+.modal::backdrop {
+  background-color: rgba(0 , 0 , 0 , 0.75);
+}
+
+@media (width >= 768px) {
+  .header__title-container {
+    padding: 128.5px 0;
+    margin-block-end: 98px;
+  }
+
+  .card__title {
+    padding: 4px 10px;
+  }
+
+  .card__like-button {
+    padding: 10px 8px;
+    }
+
+  .modal{
+    padding: 30px 30px;
+  }
+
+  .floopy-button {
+    flex-direction: row;
+  }
+
+  .floopy-img{
+    block-size: 21px;
+    inline-size: 21px;
+  }
+
+  .page:has(.modal[open]) {
+    padding-right: var(--scrollbar-width);
+  }
 }

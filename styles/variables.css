@@ -1,1 +1,23 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+    --font-family--inter: Inter;
+    --font-family--pressStart2P: PressStart2P;
+    --font-weight--text: 410;
+    --font-weight--title: 715;
+    --font-size--pixel-text--small: 0.875rem;
+    --section-size--primary: clamp(320px, 100%, 700px);
+    --scrollbar-width: 15px;
+    --border-primary: 2px solid var(--color-black);
+    --border-invers: 2px solid var(--color-white);
+
+    --heart--contour-color: var(--color-black);
+    --heart--main-body-color: transparent;
+    --heart--core-color: transparent;
+    --heart--sparks-color: var(--color-red--heart);
+    --heart--sparks-opacity: 0;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-red--heart: #FF0000;
+}
