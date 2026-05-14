@@ -44,7 +44,7 @@ button {
 
 .pixel-style {
   font-family: 'PressStart2P', sans-serif;
-  font-variation-settings: "wght" var(--font-weight--text);
+  font-weight: 400px;
   font-size: var(--font-size--pixel-text--small);
 }
 
@@ -211,6 +211,7 @@ button {
   display: grid;
   gap: 25px;
   font-size: 1.125rem;
+  font-variation-settings: "wght" var(--font-weight--text);
 }
 
 /* !-- Карточки - кнопки -- */
@@ -275,7 +276,7 @@ button {
 /* ! -- active */
 
 .like-icon:active .core {
-   transition: fill .3s linear;
+  transition: fill .3s linear;
   transition-delay: 0s; 
 }
 
@@ -376,7 +377,7 @@ button {
   overflow: hidden;
 }
 
-.modal{
+.modal {
   padding: 30px 40px;
 }
 
