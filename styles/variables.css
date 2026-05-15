@@ -1,23 +1,34 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 
 :root {
-    --font-family--inter: Inter;
-    --font-family--pressStart2P: PressStart2P;
-    --font-weight--text: 410;
-    --font-weight--title: 715;
-    --font-size--pixel-text--small: 0.875rem;
-    --section-size--primary: clamp(320px, 100%, 700px);
+    --font-family-main: Inter;
+    --font-family-secondary: PressStart2P;
+    --font-weight-text: 410;
+    --font-weight-title: 715;
+    --font-size-pixel-text: 0.875rem;
+
+    --section-size-primary: clamp(320px, 100%, 700px);
     --scrollbar-width: 15px;
-    --border-primary: 2px solid var(--color-black);
-    --border-invers: 2px solid var(--color-white);
 
-    --heart--contour-color: var(--color-black);
-    --heart--main-body-color: transparent;
-    --heart--core-color: transparent;
-    --heart--sparks-color: var(--color-red--heart);
-    --heart--sparks-opacity: 0;
+    --border-primary: 2px solid var(--color-secondary);
+    --border-invers: 2px solid var(--color-primary);
 
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-red--heart: #FF0000;
+    --heart-contour-color: var(--color-secondary);
+    --heart-main-body-color: transparent;
+    --heart-core-color: transparent;
+    --heart-sparks-color: var(--color-heart-main);
+    --heart-sparks-opacity: 0;
+
+    --color-primary: #fff;
+    --color-secondary: #000;
+    --color-heart-main: #FF0000;
+
+    --backround-color-main: var(--color-primary);
+    --backround-color-reverse: var(--color-secondary);
+    
+    --text-color-main: var(--color-secondary);
+    --text-color-reverse: var(--color-primary);
+
+    --color-shadow: var(--color-primary);
+    
 }

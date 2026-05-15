@@ -15,3 +15,7 @@
 1. Клонируйте репозиторий:
 ```bash
 https://github.com/KirillASs/zakrivayuschiy-teg-f
+
+## Ссылка на страницу
+
+https://kirillass.github.io/zakrivayuschiy-teg-f/

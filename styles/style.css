@@ -11,7 +11,6 @@
 */
 /* !-- Основаные стили страницы -- */
 
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -31,10 +30,10 @@
             #d3d3d3 4px
         ),
   linear-gradient(#E7E7E7 0.01% , #1A1A1A);
-
+  background-color: #E7E7E7;
   background-size: cover;
   background-attachment: fixed;
-  font-family: var(--font-family--inter);
+  font-family: var(--font-family-main), sans-serif;
 }
 
 /* !-- Стили для группы элементов и общие классы -- */
@@ -42,15 +41,29 @@ button {
   cursor: pointer;
 }
 
+.button__select:focus {
+  outline: none;
+}
+
+.button__select:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--color-shadow);
+}
+
+/* !-- Фикс для тени у кнопки с дискетой -- */
+
+.modal-section:has(.button__select:focus-visible) {
+  box-shadow: 2px 2px 0 0 var(--color-shadow);
+}
+
 .pixel-style {
-  font-family: 'PressStart2P', sans-serif;
-  font-weight: 400px;
-  font-size: var(--font-size--pixel-text--small);
+  font-family: var(--font-family-secondary), fantasy;
+  font-weight: 400;
+  font-size: var(--font-size-pixel-text);
 }
 
 .button--hover {
   border: var(--border-invers);
-  background-color: var(--color-black);
+  background-color: var(--backround-color-reverse);
   position: relative;
   overflow: hidden;
   mix-blend-mode: difference;
@@ -60,7 +73,7 @@ button {
   position: relative;
   z-index: 2;
   mix-blend-mode: difference;
-  color: var(--color-white);
+  color: var(--text-color-reverse);
 }
 
 .button--hover::before {
@@ -68,7 +81,7 @@ button {
   position: absolute;
   inset: 0;
   transition: transform 0.5s ease-in-out;
-  background-color: var(--color-white);
+  background-color: var(--backround-color-main);
   transform: translateX(-100%);
 }
 
@@ -108,7 +121,7 @@ button {
 
 /* !-- Шапка страницы -- */
 .header {
-  inline-size: var(--section-size--primary);
+  inline-size: var(--section-size-primary);
   margin: 0 auto;
 }
 
@@ -117,7 +130,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-white);
+  background-color: var(--backround-color-main);
   padding: 120px 0;
   margin-block-start: 100px;
   margin-block-end: 100px;
@@ -145,16 +158,22 @@ button {
 
 /* !-- Карточки -- */
 
+.card-list {
+  display: grid;
+  gap: 50px;
+  justify-items: center;
+}
+
 .card {
   border: var(--border-primary);
-  background-color: var(--color-white);
-  inline-size: var(--section-size--primary);
+  background-color: var(--backround-color-main);
+  inline-size: var(--section-size-primary);
 }
 
 /* !-- Карточки - заголовок -- */
 
 .card__title {
-  font-variation-settings: "wght" var(--font-weight--title);
+  font-variation-settings: "wght" var(--font-weight-title);
   font-size: 18px;
   padding: 5px 10px;
 }
@@ -176,18 +195,16 @@ button {
 }
 
 .img-lable {
-  font-family: var(--font-family--pressStart2P);
   position: absolute;
   top: 25px;
   right: 25px;
   text-shadow: 
-        -1px -1px 0 var(--color-white),
-        1px -1px 0 var(--color-white),
-        -1px 1px 0 var(--color-white),
-        1px 1px 0 var(--color-white);
+        -1px -1px 0 var(--color-shadow),
+        1px -1px 0 var(--color-shadow),
+        -1px 1px 0 var(--color-shadow),
+        1px 1px 0 var(--color-shadow);
   mix-blend-mode: hard-light;
-  font-size: var(--font-size--pixel-text--small);
-  color: var(--color-black);
+  color: var(--text-color-main);
   opacity: .5;
   text-transform: uppercase;
   background: transparent;
@@ -195,10 +212,10 @@ button {
 
 /* !-- Комментарий для ревью, text-stroke выглядит не очень как его не настраивай, все из за уменьшения толщины шрифта -- */
 
-@supports (text-stroke: 0.2px var(--color-white)) or (-webkit-text-stroke: 0.2px var(--color-white)) {
+@supports (text-stroke: 0.2px var(--color-shadow)) or (-webkit-text-stroke: 0.2px var(--color-shadow)) {
   .img-lable {
-    -webkit-text-stroke: 0.2px var(--color-white);
-    text-stroke: 1px var(--color-white);
+    -webkit-text-stroke: 0.2px var(--color-shadow);
+    text-stroke: 0.2px var(--color-shadow);
     text-shadow: none;
     font-weight: bold;
   }
@@ -211,7 +228,7 @@ button {
   display: grid;
   gap: 25px;
   font-size: 1.125rem;
-  font-variation-settings: "wght" var(--font-weight--text);
+  font-variation-settings: "wght" var(--font-weight-text);
 }
 
 /* !-- Карточки - кнопки -- */
@@ -235,7 +252,7 @@ button {
 }
 
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--color-black);
+  outline: var(--border-primary);
 }
 
 .like-icon {
@@ -243,94 +260,6 @@ button {
   block-size: 35px;
   display: flex;
   place-items: center;
-}
-
-.contour {
-  transition: fill .1s linear;
-}
-
-.core {
-  transition: fill .3s linear;
-  transition-delay: .03s;
-}
-
-.main-body {
-  transition: fill .3s linear;
-}
-
-/* ! -- hover */
-
-.like-icon:hover .core {
-  transition-delay: 0s;
-}
-
-.like-icon:hover .main-body {
-  transition-delay: 0.05s;
-}
-
-.like-icon:hover {
-  --heart--main-body-color: var(--color-black);
-  --heart--core-color: var(--color-black);
-}
-
-/* ! -- active */
-
-.like-icon:active .core {
-  transition: fill .3s linear;
-  transition-delay: 0s;
-}
-
-.like-icon:active .main-body {
-  transition-delay: 0.05s;
-}
-
-.like-icon:active {
-  --heart--main-body-color: var(--color-red--heart);
-  --heart--core-color: var(--color-red--heart);
-}
-
-/* ! -- click */
-
-.like-icon.is-liked .core {
-  transition-delay: 0s;
-}
-
-.like-icon.is-liked .main-body {
-  transition-delay: 0.05s;
-}
-
-.like-icon.is-liked .contour {
-  transition-delay: 0.06s;
-}
-
-.like-icon.is-liked {
-  --heart--contour-color: var(--color-red--heart);
-  --heart--main-body-color: var(--color-red--heart);
-  --heart--core-color: var(--color-red--heart);
-  animation: sparks-opacity .3s .3s ease-in ;
-}
-
-.like-icon.is-liked .heart {
-  animation: heart-scale .3s .1s ease-in;
-  transform-origin: center;
-}
-
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.25);
-  }
-}
-
-@keyframes sparks-opacity {
-  from {
-    --heart--sparks-opacity: 0;
-  }
-  to {
-    --heart--sparks-opacity: 1;
-  }
 }
 
 /* !-- Карточки - кнопка лайка -- */
@@ -341,15 +270,10 @@ button {
   transition: box-shadow 0.3s ease;
 }
 
-
-.card__like-button:focus-visible, .card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--color-white);
-}
-
 .modal-section {
   margin-bottom: 100px;
   background: white;
+  transition: box-shadow 0.3s ease;
 }
 
 .floopy-button {
@@ -361,15 +285,10 @@ button {
   transition: box-shadow 0.3s ease;
 }
 
-.floopy-button:focus-visible, .floopy-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--color-white);
-}
-
 .floopy-img {
   block-size: 28px;
   inline-size: 28px;
-  fill: var(--color-white);
+  fill: var(--backround-color-main);
   mix-blend-mode: difference;
 }
 
@@ -413,11 +332,6 @@ button {
   line-height: 90%;
   transition: box-shadow 0.3s ease;
   
-}
-
-.modal__button:focus-visible, .modal__button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--color-white);
 }
 
 .modal::backdrop {

@@ -1,11 +1,87 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+@keyframes heart-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+@keyframes sparks-opacity {
+  from {
+    --heart-sparks-opacity: 0;
+  }
+  to {
+    --heart-sparks-opacity: 1;
+  }
+}
 
-*/
+.contour {
+  transition: fill .1s linear;
+}
+
+.core {
+  transition: fill .3s linear;
+  transition-delay: .03s;
+}
+
+.main-body {
+  transition: fill .3s linear;
+}
+
+/* ! -- hover */
+
+.like-icon:hover .core {
+  transition-delay: 0s;
+}
+
+.like-icon:hover .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon:hover {
+  --heart-main-body-color: var(--color-secondary);
+  --heart-core-color: var(--color-secondary);
+}
+
+/* ! -- active */
+
+.like-icon:active .core {
+  transition: fill .3s linear;
+  transition-delay: 0s;
+}
+
+.like-icon:active .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon:active {
+  --heart-main-body-color: var(--color-heart-main);
+  --heart-core-color: var(--color-heart-main);
+}
+
+/* ! -- click */
+
+.like-icon.is-liked .core {
+  transition-delay: 0s;
+}
+
+.like-icon.is-liked .main-body {
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked {
+  --heart-contour-color: var(--color-heart-main);
+  --heart-main-body-color: var(--color-heart-main);
+  --heart-core-color: var(--color-heart-main);
+  animation: sparks-opacity .3s .3s ease-in ;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale .3s .1s ease-in;
+  transform-origin: center;
+}
