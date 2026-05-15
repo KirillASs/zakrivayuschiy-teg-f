@@ -30,5 +30,5 @@
     --text-color-reverse: var(--color-primary);
 
     --color-shadow: var(--color-primary);
-    
+    --color-shadow-revers: var(--color-secondary);
 }

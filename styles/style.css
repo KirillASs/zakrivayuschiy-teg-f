@@ -30,7 +30,7 @@
             #d3d3d3 4px
         ),
   linear-gradient(#E7E7E7 0.01% , #1A1A1A);
-  background-color: #E7E7E7;
+  background-color: var(--backround-color-main);
   background-size: cover;
   background-attachment: fixed;
   font-family: var(--font-family-main), sans-serif;
@@ -40,19 +40,17 @@
 button {
   cursor: pointer;
 }
+.button__select{
+  transition: box-shadow 0.3s ease;
+}
+
 
 .button__select:focus {
   outline: none;
 }
 
 .button__select:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--color-shadow);
-}
-
-/* !-- Фикс для тени у кнопки с дискетой -- */
-
-.modal-section:has(.button__select:focus-visible) {
-  box-shadow: 2px 2px 0 0 var(--color-shadow);
+  box-shadow: 2px 2px 0 0 var(--color-shadow-revers);
 }
 
 .pixel-style {
@@ -62,11 +60,10 @@ button {
 }
 
 .button--hover {
-  border: var(--border-invers);
-  background-color: var(--backround-color-reverse);
+  border: var(--border-primary);
+  background-color: var(--backround-color-main);
   position: relative;
   overflow: hidden;
-  mix-blend-mode: difference;
 }
 
 .button--hover span {
@@ -83,6 +80,7 @@ button {
   transition: transform 0.5s ease-in-out;
   background-color: var(--backround-color-main);
   transform: translateX(-100%);
+  mix-blend-mode: difference;
 }
 
 .button--hover:hover.button--hover::before {
@@ -267,13 +265,11 @@ button {
 .card__like-button {
   padding: 9.5px 8px;
   min-inline-size: 130px;
-  transition: box-shadow 0.3s ease;
 }
 
 .modal-section {
   margin-bottom: 100px;
   background: white;
-  transition: box-shadow 0.3s ease;
 }
 
 .floopy-button {
@@ -282,7 +278,6 @@ button {
   gap: 8px;
   align-items: center;
   padding: 15px 18px;
-  transition: box-shadow 0.3s ease;
 }
 
 .floopy-img {
@@ -330,8 +325,6 @@ button {
   inline-size: 100%;
   padding: 10.5px 0;
   line-height: 90%;
-  transition: box-shadow 0.3s ease;
-  
 }
 
 .modal::backdrop {
