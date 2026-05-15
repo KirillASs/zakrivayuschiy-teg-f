@@ -40,7 +40,7 @@
 button {
   cursor: pointer;
 }
-.button__select{
+.button__select {
   transition: box-shadow 0.3s ease;
 }
 
